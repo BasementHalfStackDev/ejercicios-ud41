@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CharactersListService } from '../service/characters-list.service';
 import { Router } from '@angular/router';
 import { Character } from '../models/character';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-characters',
@@ -16,12 +17,14 @@ export class CharactersComponent implements OnInit {
   constructor(private charactersService: CharactersListService, private router: Router) { }
 
   ngOnInit(): void {
-    this.charactersService.returnValues().subscribe((data: Character[]) => {
-      this.characters = data;
-      console.log(data);
-    },
-    error => {
-      console.log("Something went wrong:", error);
+    this.charactersService.returnValues().subscribe({
+      next: (data: Character[]) => {
+        this.characters = data;
+        console.log(data);
+      },
+      error: (error: any) => {
+        console.log("Something went wrong:", error);
+      }
     });
   }
 
