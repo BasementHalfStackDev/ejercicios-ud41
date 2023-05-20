@@ -24,7 +24,6 @@ export class CharactersComponent implements OnInit {
     this.charactersService.returnValues().subscribe({
       next: (data: Character[]) => {
         this.characters = data;
-        console.log(data);
       },
       error: (error: any) => {
         console.log("Something went wrong:", error);
@@ -42,7 +41,7 @@ export class CharactersComponent implements OnInit {
     this.router.navigate(['/characters/new']);
   }
 
-  // Function to delete a character 
+  // Function to delete a character
   deleteChar(id: number, name: string) {
     const message: string = "Are you sure you want to delete the character " + name + "?";
     const userChoice = window.confirm(message);

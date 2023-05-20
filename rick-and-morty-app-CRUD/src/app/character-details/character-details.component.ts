@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharactersListService } from '../service/characters-list.service';
 import { Router } from '@angular/router';
+import { Character } from '../models/character';
 
 @Component({
   selector: 'app-character-details',
@@ -12,7 +13,7 @@ export class CharacterDetailsComponent {
 
   // Attribute to store id and character
   id: number = 0;
-  character: any = null;
+  character: Character = {} as Character;
 
   // Constructor with ActivatedRoute, Service, and Router
   constructor(private route: ActivatedRoute, private characterService: CharactersListService, private router: Router) { }
@@ -26,7 +27,6 @@ export class CharacterDetailsComponent {
       // If id is not null
       if (this.id) {
         // Get character from service with passed ID
-        console.log(this.id)
         this.characterService.getCharacter(this.id).subscribe((data: any) => {
           this.character = data;
         })

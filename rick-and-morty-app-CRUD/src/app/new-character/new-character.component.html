@@ -3,20 +3,20 @@
     <div class="col-12 col-md-6">
       <div class="form">
         <label for="charName" class="form-label">Character name</label>
-        <input type="text" class="form-control mb-2" id="charName" placeholder="Insert the characters name">
+        <input type="text" class="form-control mb-2" id="charName" placeholder="Insert the characters name" [(ngModel)]="character.name">
         <label for="charStatus" class="form-label">Status</label>
-        <input type="text" class="form-control mb-2" id="charStatus" placeholder="Dead, alive or unknown?">
+        <input type="text" class="form-control mb-2" id="charStatus" placeholder="Dead, alive or unknown?" [(ngModel)]="character.status">
         <label for="charSpecies" class="form-label">Species</label>
-        <input type="text" class="form-control mb-2" id="charSpecies" placeholder="Human...">
+        <input type="text" class="form-control mb-2" id="charSpecies" placeholder="Human..." [(ngModel)]="character.species">
         <label for="charGender" class="form-label">Gender</label>
-        <input type="text" class="form-control mb-2" id="charGender" placeholder="Male/Female/Unknown">
+        <input type="text" class="form-control mb-2" id="charGender" placeholder="Male/Female/Unknown" [(ngModel)]="character.gender">
         <label for="charOrigin" class="form-label">Origin</label>
-        <input type="text" class="form-control mb-2" id="charOrigin" placeholder="Earth, Citadel of Ricks...">
+        <input type="text" class="form-control mb-2" id="charOrigin" placeholder="Earth, Citadel of Ricks..." [(ngModel)]="character.origin">
         <label for="charImgUrl" class="form-label">Image Url</label>
-        <input type="url" class="form-control mb-3" id="charImgUrl" placeholder="https://.... .jpg">
+        <input type="url" class="form-control mb-3" id="charImgUrl" placeholder="https://.... .jpg" [(ngModel)]="character.image">
         <div class="text-center">
           <button class="btn btn-warning" (click)="goBack()">Go back</button>
-          <button type="submit" class="btn btn-primary ms-2">Submit</button>
+          <button type="submit" class="btn btn-primary ms-2" (click)="addChar()">Submit</button>
         </div>
       </div>
     </div>
