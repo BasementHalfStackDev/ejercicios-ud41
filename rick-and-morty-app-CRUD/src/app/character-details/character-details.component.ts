@@ -20,14 +20,16 @@ export class CharacterDetailsComponent {
   ngOnInit(): void {
     // Get the id from the route parameters
     this.route.params.subscribe(params => {
+      // Converts to int the id parameter
       this.id = +params['id'];
 
+      // If id is not null
       if (this.id) {
         // Get character from service with passed ID
         console.log(this.id)
         this.characterService.getCharacter(this.id).subscribe((data: any) => {
-        this.character = data;
-      })
+          this.character = data;
+        })
       }
 
     });

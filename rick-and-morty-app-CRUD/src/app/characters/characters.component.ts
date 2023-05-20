@@ -32,11 +32,17 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  // Function that takes you to /characters/id
-  readMore(id: number){
-    this.router.navigate(['/characters', id]);
+  // Function that takes you to /ch
+  readMore(id: number) {
+    this.router.navigate(['/characters/id', id]);
   }
 
+  // Function to navigate to the new character form
+  newChar() {
+    this.router.navigate(['/characters/new']);
+  }
+
+  // Function to delete a character 
   deleteChar(id: number, name: string) {
     const message: string = "Are you sure you want to delete the character " + name + "?";
     const userChoice = window.confirm(message);
