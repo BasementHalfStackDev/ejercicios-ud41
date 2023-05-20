@@ -40,5 +40,8 @@ export class CharacterDetailsComponent {
     this.router.navigate(['/characters']);
   }
 
+  modChar(id: number) {
+    this.router.navigate(['/characters/id', id, 'modify']);
+  }
 
 }

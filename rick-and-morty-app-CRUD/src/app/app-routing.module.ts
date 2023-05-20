@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'about', component: AboutUsComponent},
   { path: 'characters', component: CharactersComponent},
   { path: 'characters/new', component: NewCharacterComponent},
-  { path: 'characters/id/:id', component: CharacterDetailsComponent}
+  { path: 'characters/id/:id', component: CharacterDetailsComponent},
+  { path: 'characters/id/:id/modify', component: ModCharacterComponent}
 ];
 
 @NgModule({

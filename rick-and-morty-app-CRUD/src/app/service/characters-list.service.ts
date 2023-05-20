@@ -26,14 +26,23 @@ export class CharactersListService {
     );
   };
 
+  // Function to get character data by ID
   getCharacter(id: number): Observable<Character> {
     return this.http.get<Character>("http://localhost:3000/characters/" + id).pipe(
       catchError(this.handleError)
     );
   }
 
+  // Function to add character
   addCharacter(character: Character): Observable<Character> {
     return this.http.post<Character>("http://localhost:3000/characters", character).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Function to modify character
+  modCharacter(id: number, character: Character): Observable<Character> {
+    return this.http.put<Character>("http://localhost:3000/characters/"+id, character).pipe(
       catchError(this.handleError)
     );
   }

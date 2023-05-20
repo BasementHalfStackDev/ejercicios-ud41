@@ -32,7 +32,7 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  // Function that takes you to /ch
+  // Function that takes you to character details
   readMore(id: number) {
     this.router.navigate(['/characters/id', id]);
   }
