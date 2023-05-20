@@ -17,6 +17,7 @@ export class ModCharacterComponent {
 
   constructor(private route: ActivatedRoute, private characterService: CharactersListService, private router: Router) { }
 
+  // On init, get passed id from route and get character data from ID
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
@@ -26,15 +27,21 @@ export class ModCharacterComponent {
     });
   }
 
+  // Function to return to character
   goBack() {
     this.router.navigate(['/characters/id/' + this.id]);
   }
 
+  // Function to modify character
   modChar() {
+    // Modify character with service
     this.characterService.modCharacter(this.id, this.character).subscribe({
       next: response => {
+        // Checks response is valid
         if (response) {
+          // Notifies it's valid
           alert("Character updated successfully!");
+          // Returns to character card
           this.goBack();
         }
       },
