@@ -27,7 +27,7 @@ export class CharacterDetailsComponent {
       // If id is not null
       if (this.id) {
         // Get character from service with passed ID
-        this.characterService.getCharacter(this.id).subscribe((data: any) => {
+        this.characterService.getCharacter(this.id).subscribe((data: Character) => {
           this.character = data;
         })
       }

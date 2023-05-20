@@ -20,6 +20,7 @@ export class CharactersComponent implements OnInit {
     this.getAllChars();
   }
 
+  // Function to get all characters in DB
   getAllChars() {
     this.charactersService.returnValues().subscribe({
       next: (data: Character[]) => {
@@ -46,9 +47,12 @@ export class CharactersComponent implements OnInit {
     const message: string = "Are you sure you want to delete the character " + name + "?";
     const userChoice = window.confirm(message);
 
+    // If user confirms
     if (userChoice) {
+      // Delete character by ID
       this.charactersService.deleteCharacter(id).subscribe({
         next: response => {
+          // Refresh characters
           this.getAllChars();
         },
         error: error => {
