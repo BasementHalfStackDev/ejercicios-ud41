@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class CharactersListService {
 
+  id: number = 0;
   constructor(private http: HttpClient) { }
 
   returnValues(): Observable<Character[]> {
@@ -17,7 +18,17 @@ export class CharactersListService {
     );
   };
 
-  
+  deleteCharacter(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/characters/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  };
+
+  getCharacter(id: number): Observable<any> {
+    return this.http.get("http://localhost:3000/characters/" + id).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {

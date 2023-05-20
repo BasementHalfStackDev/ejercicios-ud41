@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { CharactersComponent } from './characters/characters.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
+import { NewCharacterComponent } from './new-character/new-character.component';
+import { ModCharacterComponent } from './mod-character/mod-character.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CharacterDetailsComponent } from './character-details/character-details
     NavbarComponent,
     HomeComponent,
     CharactersComponent,
-    CharacterDetailsComponent
+    CharacterDetailsComponent,
+    NewCharacterComponent,
+    ModCharacterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CharacterByIdService } from '../service/character-by-id.service';
+import { CharactersListService } from '../service/characters-list.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,20 +15,20 @@ export class CharacterDetailsComponent {
   character: any = null;
 
   // Constructor with ActivatedRoute, Service, and Router
-  constructor(private route: ActivatedRoute, private characterById: CharacterByIdService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private characterService: CharactersListService, private router: Router) { }
 
   ngOnInit(): void {
     // Get the id from the route parameters
     this.route.params.subscribe(params => {
-      this.id = params['id'];
+      this.id = +params['id'];
 
-      // Pass id to service
-      this.characterById.id = this.id;
-
-      // Get character from service with passed ID
-      this.characterById.returnValues().subscribe((data: any) => {
+      if (this.id) {
+        // Get character from service with passed ID
+        console.log(this.id)
+        this.characterService.getCharacter(this.id).subscribe((data: any) => {
         this.character = data;
       })
+      }
 
     });
   }

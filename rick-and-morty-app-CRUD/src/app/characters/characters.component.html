@@ -4,10 +4,20 @@
       <div class="container text-center border py-2 text-break">
         <img class="img-fluid" [src]="character.image" [alt]="character.name">
         <h5 class="py-2">{{ character.name }}</h5>
-        <div class="d-grid gap-2">
-          <button class="btn btn-warning my-2" (click)="readMore(character.id)">See more...</button>
-        </div>
+          <div class="row my-2">
+            <div class="col-6 d-grid gap-2 mx-auto">
+              <button class="btn btn-warning" (click)="readMore(character.id)">See more...</button>
+            </div>
+            <div class="col-6 d-grid mx-auto">
+              <button class="btn btn-danger" (click)="deleteChar(character.id, character.name)">Delete</button>
+            </div>
+          </div>
       </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button class="btn btn-primary">New Character</button>
     </div>
   </div>
 </div>
